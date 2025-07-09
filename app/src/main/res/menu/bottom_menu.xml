@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/input"
+        android:icon="@drawable/baseline_create_24"
+        android:title="Nhập vào" />
+    <item
+        android:id="@+id/calendar"
+        android:icon="@drawable/baseline_calendar_month_24"
+        android:title="Lịch" />
+    <item
+        android:id="@+id/budget"
+        android:icon="@drawable/baseline_savings_24"
+        android:title="Ngân sách" />
+    <item
+        android:id="@+id/report"
+        android:icon="@drawable/baseline_pie_chart_24"
+        android:title="Báo cáo" />
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Cài đặt" />
+</menu>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TienChiFragment">
+
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="Ngày"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size_label" />
+
+            <EditText
+                android:id="@+id/edittextDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
+                android:drawableEnd="@drawable/baseline_calendar_month_24"
+                android:drawablePadding="8dp"
+                android:hint="dd/MM/yyyy"
+                android:inputType="date"
+                android:padding="8dp"
+                android:textSize="@dimen/text_size_input" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textViewNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="Ghi chú"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size_label" />
+
+            <EditText
+                android:id="@+id/edittextNote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
+                android:drawablePadding="8dp"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textSize="@dimen/text_size_input" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/grey" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutTienChi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textViewTienChi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="Tiền chi"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size_label" />
+
+            <EditText
+                android:id="@+id/edittextTienChi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
+                android:drawablePadding="8dp"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textSize="@dimen/text_size_input" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="đ"
+                android:textSize="@dimen/text_size_label" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/grey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/formContainer">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh mục"
+            android:textSize="@dimen/text_size_label" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:useDefaultMargins="true">
+
+            <Button
+                android:id="@+id/btnAnUong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Ăn uống"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnHangNgay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Hằng ngày"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnQuanAo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Quần áo"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnMyPham"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/grey"
+                android:padding="20dp"
+                android:text="Mỹ phẩm"
+                android:textColor="@color/black" />
+        </GridLayout>
+
+        <Button
+            android:id="@+id/btnNhapTienChi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/grey"
+            android:text="Nhập khoản tiền chi"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
