@@ -36,13 +36,7 @@ public class ReportActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), BudgetActivity.class));
                 finish();
                 return true;
-            } else if (id == R.id.report) {
-                return true;
-            } else if (id == R.id.setting) {
-                startActivity(new Intent(getApplicationContext(), SettingActivity.class));
-                finish();
-                return true;
-            } else return false;
+            } else return id == R.id.report;
         });
     }
 }

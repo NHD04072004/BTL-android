@@ -2,7 +2,8 @@ package com.example.quanlychitieu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.CalendarView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,34 +17,37 @@ import java.util.Date;
 import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    List<DataClass> dataList;
-    RecycleViewAdapter adapter;
-    DataClass androidData;
+    private RecyclerView recyclerView;
+    private List<DataClass> dataList;
+    private RecycleViewAdapter adapter;
+    private DatabaseHelper db;
+    private CalendarView calendarView;
+    private TextView idDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_calendar);
-
+        db = new DatabaseHelper(this);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setSelectedItemId(R.id.calendar);
+        calendarView = findViewById(R.id.calendarView2);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        Log.d("DEBUG", "RV = " + recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewCalendar);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
-        dataList = new ArrayList<>();
-        Categories cat1 = new Categories(1, "Ăn uống", Categories.TransactionType.CHI);
-        Transaction tx1 = new Transaction(1, 70000, cat1.getId(), new Date(), "Cà phê sáng");
-        Categories cat2 = new Categories(2, "Luong", Categories.TransactionType.THU);
-        Transaction tx2 = new Transaction(2, 100000, cat2.getId(), new Date(), "Luong");
+        idDate = findViewById(R.id.idDate);
 
-        androidData = new DataClass(cat1, tx1);
-        dataList.add(androidData);
-        androidData = new DataClass(cat2, tx2);
-        dataList.add(androidData);
+        String today = DateUtils.getCurrentDateString();
+        idDate.setText(today);
+        loadTransactionsForDate(today);
+
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            String selectedDate = String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year);
+            idDate.setText(selectedDate);
+            loadTransactionsForDate(selectedDate);
+        });
 
         adapter = new RecycleViewAdapter(this, dataList);
         recyclerView.setAdapter(adapter);
@@ -64,11 +68,14 @@ public class CalendarActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ReportActivity.class));
                 finish();
                 return true;
-            } else if (id == R.id.setting) {
-                startActivity(new Intent(getApplicationContext(), SettingActivity.class));
-                finish();
-                return true;
             } else return false;
         });
     }
+
+    private void loadTransactionsForDate(String date) {
+        dataList = db.getTransactionsByDate(date);
+        adapter = new RecycleViewAdapter(this, dataList);
+        recyclerView.setAdapter(adapter);
+    }
+
 }

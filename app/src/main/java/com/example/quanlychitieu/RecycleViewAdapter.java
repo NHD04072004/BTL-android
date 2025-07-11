@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -23,15 +24,23 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_calendar, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.recycleCategory.setText(dataList.get(position).getCategories().getName());
-        int amt = dataList.get(position).getTransaction().getAmount();
-        holder.recyclePrice.setText(String.valueOf(amt));
+        DataClass item = dataList.get(position);
+        holder.recycleCategory.setText(item.getCategories().getName());
+        holder.recycleNote.setText(item.getTransaction().getNote());
+        int amt = item.getTransaction().getAmount();
+        if (item.getCategories().getType() == Categories.TransactionType.THU) {
+            holder.recyclePrice.setText(String.format("+%d đ", amt));
+            holder.recyclePrice.setTextColor(ContextCompat.getColor(context, R.color.green));
+        } else {
+            holder.recyclePrice.setText(String.format("−%d đ", amt));
+            holder.recyclePrice.setTextColor(ContextCompat.getColor(context, R.color.red));
+        }
     }
 
     @Override
@@ -41,12 +50,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
 }
 
 class MyViewHolder extends RecyclerView.ViewHolder {
-    TextView recycleCategory, recyclePrice;
+    TextView recycleCategory, recycleNote, recyclePrice;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
 
         recycleCategory = itemView.findViewById(R.id.recycleCategory);
+        recycleNote = itemView.findViewById(R.id.recycleNote);
         recyclePrice = itemView.findViewById(R.id.recyclePrice);
     }
 }

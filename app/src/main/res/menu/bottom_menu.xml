@@ -16,8 +16,4 @@
         android:id="@+id/report"
         android:icon="@drawable/baseline_pie_chart_24"
         android:title="Báo cáo" />
-    <item
-        android:id="@+id/setting"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="Cài đặt" />
 </menu>

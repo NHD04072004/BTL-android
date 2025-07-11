@@ -14,10 +14,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if (position == 1) {
-            return new TienThuFragment();
-        }
-        return new TienChiFragment();
+        return position == 0 ? new TienChiFragment() : new TienThuFragment();
     }
 
     @Override

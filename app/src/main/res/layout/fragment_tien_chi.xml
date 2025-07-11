@@ -131,10 +131,11 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/formContainer">
@@ -143,140 +144,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Danh mục"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_size_label" />
 
         <GridLayout
+            android:id="@+id/grid_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:columnCount="3"
-            android:useDefaultMargins="true">
-
-            <Button
-                android:id="@+id/btnAnUong"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Ăn uống"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnHangNgay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Hằng ngày"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnQuanAo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Quần áo"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/btnMyPham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:text="Mỹ phẩm"
-                android:textColor="@color/black" />
-        </GridLayout>
+            android:layout_marginTop="20dp"
+            android:useDefaultMargins="true" />
 
         <Button
             android:id="@+id/btnNhapTienChi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/grey"
             android:text="Nhập khoản tiền chi"

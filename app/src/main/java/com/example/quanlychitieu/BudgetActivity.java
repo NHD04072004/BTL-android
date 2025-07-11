@@ -38,10 +38,6 @@ public class BudgetActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ReportActivity.class));
                 finish();
                 return true;
-            } else if (id == R.id.setting) {
-                startActivity(new Intent(getApplicationContext(), SettingActivity.class));
-                finish();
-                return true;
             } else return false;
         });
     }

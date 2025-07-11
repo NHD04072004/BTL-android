@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuanLyChiTieu">
         <activity
+            android:name=".AddCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddCategory"
+            android:exported="false" />
+        <activity
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
