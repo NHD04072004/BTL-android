@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class TienThuFragment extends Fragment implements Refreshable{
+public class TienThuFragment extends Fragment implements Refreshable {
     private GridLayout gridCategories;
     private DatabaseHelper db;
     private EditText etDate, etNote, etAmount;
@@ -37,6 +37,16 @@ public class TienThuFragment extends Fragment implements Refreshable{
         etNote = view.findViewById(R.id.edittextNote);
         etAmount = view.findViewById(R.id.edittextTienThu);
         btnNhapTienThu = view.findViewById(R.id.btnNhapTienThu);
+
+        etDate.setFocusable(false);
+        etDate.setKeyListener(null);
+        etDate.setOnClickListener(v -> {
+            DatePickerFragment dp = new DatePickerFragment();
+            Bundle b = new Bundle();
+            b.putInt("targetId", R.id.edittextDate);
+            dp.setArguments(b);
+            dp.show(getParentFragmentManager(), "datePicker");
+        });
 
         displayCategories();
         btnNhapTienThu.setOnClickListener(v -> saveTransaction());

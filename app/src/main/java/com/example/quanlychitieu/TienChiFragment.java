@@ -38,6 +38,16 @@ public class TienChiFragment extends Fragment implements Refreshable {
         etAmount = view.findViewById(R.id.edittextTienChi);
         btnSaveTransaction = view.findViewById(R.id.btnNhapTienChi);
 
+        etDate.setFocusable(false);
+        etDate.setKeyListener(null);
+        etDate.setOnClickListener(v -> {
+            DatePickerFragment dp = new DatePickerFragment();
+            Bundle b = new Bundle();
+            b.putInt("targetId", R.id.edittextDate);
+            dp.setArguments(b);
+            dp.show(getParentFragmentManager(), "datePicker");
+        });
+
         displayCategories();
         btnSaveTransaction.setOnClickListener(v -> saveTransaction());
         return view;

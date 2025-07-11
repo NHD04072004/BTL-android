@@ -12,24 +12,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecycleViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class CalendarRecycleViewAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
     private Context context;
     private List<DataClass> dataList;
 
-    public RecycleViewAdapter(Context context, List<DataClass> dataList) {
+    public CalendarRecycleViewAdapter(Context context, List<DataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_calendar, parent, false);
-        return new MyViewHolder(view);
+        return new CalendarViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position) {
         DataClass item = dataList.get(position);
         holder.recycleCategory.setText(item.getCategories().getName());
         holder.recycleNote.setText(item.getTransaction().getNote());
@@ -49,10 +49,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 }
 
-class MyViewHolder extends RecyclerView.ViewHolder {
+class CalendarViewHolder extends RecyclerView.ViewHolder {
     TextView recycleCategory, recycleNote, recyclePrice;
 
-    public MyViewHolder(@NonNull View itemView) {
+    public CalendarViewHolder(@NonNull View itemView) {
         super(itemView);
 
         recycleCategory = itemView.findViewById(R.id.recycleCategory);

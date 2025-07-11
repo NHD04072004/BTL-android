@@ -12,14 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<DataClass> dataList;
-    private RecycleViewAdapter adapter;
+    private CalendarRecycleViewAdapter adapter;
     private DatabaseHelper db;
     private CalendarView calendarView;
     private TextView idDate;
@@ -49,7 +47,7 @@ public class CalendarActivity extends AppCompatActivity {
             loadTransactionsForDate(selectedDate);
         });
 
-        adapter = new RecycleViewAdapter(this, dataList);
+        adapter = new CalendarRecycleViewAdapter(this, dataList);
         recyclerView.setAdapter(adapter);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -74,7 +72,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     private void loadTransactionsForDate(String date) {
         dataList = db.getTransactionsByDate(date);
-        adapter = new RecycleViewAdapter(this, dataList);
+        adapter = new CalendarRecycleViewAdapter(this, dataList);
         recyclerView.setAdapter(adapter);
     }
 

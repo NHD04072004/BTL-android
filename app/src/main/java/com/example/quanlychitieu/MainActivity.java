@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                     if (result.getResultCode() == RESULT_OK) {
                         for (int i = 0; i < adapter.getItemCount(); i++) {
                             Fragment fragment = getSupportFragmentManager().findFragmentByTag("f" + i);
-                            Log.i("fragment", "onCreate: " + fragment);
                             if (fragment instanceof Refreshable) {
                                 ((Refreshable) fragment).refreshData();
                             }
