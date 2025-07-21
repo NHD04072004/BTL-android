@@ -2,7 +2,6 @@ package com.example.quanlychitieu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    private ViewPagerAdapter adapter;
+    private MainViewPagerAdapter adapter;
     private ImageButton btnMore;
     private ActivityResultLauncher<Intent> addCategoryLauncher;
 
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Tiền chi"));
         tabLayout.addTab(tabLayout.newTab().setText("Tiền thu"));
         FragmentManager fragmentManager = getSupportFragmentManager();
-        adapter = new ViewPagerAdapter(fragmentManager, getLifecycle());
+        adapter = new MainViewPagerAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(adapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

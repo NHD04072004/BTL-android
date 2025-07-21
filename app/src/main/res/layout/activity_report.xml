@@ -14,27 +14,61 @@
         android:layout_height="wrap_content"
         android:background="@color/grey"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/report"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_size_title"
             android:textStyle="bold" />
+    </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btnMore"
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/calendar_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <EditText
+            android:id="@+id/edittextDate"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="..."
-            android:src="@drawable/baseline_more_vert_32"
-            app:tint="@color/black" />
+            android:layout_marginHorizontal="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_bg"
+            android:drawableEnd="@drawable/baseline_calendar_month_24"
+            android:drawablePadding="8dp"
+            android:hint="dd/MM/yyyy"
+            android:inputType="date"
+            android:padding="8dp"
+            android:textSize="@dimen/text_size_input" />
 
     </LinearLayout>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendar_selected" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
